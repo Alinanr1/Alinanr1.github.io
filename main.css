@@ -110,7 +110,6 @@ body {
 .lil_nav a {
     height: 200px;
     display: flex;
-    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -142,6 +141,9 @@ body {
     max-width: 500px;
     justify-self: right;
     
+    }
+    .lil_nav_img {
+        margin-bottom: 10px;
     }
     .gallery {
     max-width: 500px;
