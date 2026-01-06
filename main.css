@@ -246,6 +246,9 @@ body {
         display: inline-flex;
         z-index: 20;
     }
+    .nav_btn.up, .nav_btn.down {
+        display: inline-flex;
+    }
 
     .info-card {
         width: 70%;
