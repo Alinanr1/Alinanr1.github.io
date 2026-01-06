@@ -1,4 +1,7 @@
-* {box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
 body { 
   margin: 0;
@@ -90,6 +93,8 @@ body {
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
+    scroll-margin-top: 150px; 
+
 }
 .lil_nav {
     overflow-y: auto;
@@ -97,6 +102,10 @@ body {
     grid-row-start: 2;
     flex-direction: row; 
     overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #f5eefb;
 }
 .lil_nav a {
     height: 200px;
@@ -132,10 +141,14 @@ body {
     .lil_nav {
     max-width: 500px;
     justify-self: right;
+    
     }
     .gallery {
     max-width: 500px;
     justify-self: right;
+    }
+    .gallery_img {
+    scroll-margin-top: 0; 
     }
     .info-card {
     width: 70%;
