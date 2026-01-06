@@ -138,6 +138,9 @@ body {
     transition: transform 0.18s ease, background-color 0.18s ease;
     z-index: 21;
 }
+.nav_btn.up, .nav_btn.down {
+    display: none;
+}
 
 .nav_btn:hover{
     transform: scale(1.05);
