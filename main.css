@@ -3,30 +3,37 @@
     scroll-behavior: smooth;
 }
 
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #FAF9F6;
+    /* Mjuk off-white */
+    color: #2C2C2C;
 }
 
 .header {
-  display: flex;
-  align-items: center;    
-  justify-content: space-between;
-  background-color: #defcf9;
-  padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-bottom: 1px solid #E5D3B3;
+    padding: 15px 30px;
 }
+
 .header a {
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
+    color: #5D5B56;
+    font-weight: 500;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
 }
+
 .header-right {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .header a.logo {
@@ -36,29 +43,33 @@ body {
 }
 
 .header a:hover {
-  background-color:#b2cac7;
-  color: white;
+    background-color: #F4EDE0;
+    color: #A67C52;
 }
 
 .header a.active {
-  background-color: #8d9bb0;
-  color: white;
+    background-color: #E5D3B3; 
+    color: #2C2C2C;
 }
+
 @media screen and (max-width: 600px) {
     .header {
-    flex-direction: column;
-    align-items: stretch;
+        flex-direction: column;
+        align-items: stretch;
     }
+
     .header a {
-    display: block;
-    text-align: left;
+        display: block;
+        text-align: left;
     }
+
     .header a.logo {
-    width: 300px; 
-    margin: 0 auto;  
+        width: 300px;
+        margin: 0 auto;
     }
+
     .header-right {
-    display:block;
+        display: block;
     }
 }
 
@@ -67,14 +78,16 @@ body {
     display: block;
     max-width: 100%;
 }
+
 .wrapper {
     margin: 0 auto;
     display: grid;
     grid-template-rows: auto 1fr;
-    grid-gap: 10px;
     height: 100vh;
-    background-color: #f5eefb;
+    background-color: #FAF9F6;
+    grid-gap: 20px;
 }
+
 .gallery {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -84,8 +97,9 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     margin-top: 20px;
-    background-color: #f5eefb;
+    background-color: #FAF9F6;
 }
+
 .gallery_img {
     scroll-snap-align: start;
     margin-bottom: 10px;
@@ -93,20 +107,23 @@ body {
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
-    scroll-margin-top: 150px; 
+    scroll-margin-top: 225px;
 
 }
+
 .lil_nav {
     overflow-y: auto;
     display: flex;
     grid-row-start: 2;
-    flex-direction: row; 
+    flex-direction: row;
     overflow-x: auto;
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: #f5eefb;
+    background-color: #FAF9F6;
+    border-bottom: 3px solid #E5D3B3;
 }
+
 .lil_nav a {
     height: 200px;
     display: flex;
@@ -114,64 +131,82 @@ body {
     align-items: center;
     display: flex;
 }
+
 .lil_nav_img {
     width: 100%;
     height: 100%;
     object-position: center;
     object-fit: cover;
-    filter: saturate(0);
+    filter: saturate(0) ;
     transition: 0.3s ease all;
 }
+
 .lil_nav_img:hover {
     transform: scale(1.05);
     filter: saturate(1);
 }
-    @media screen and (min-width: 1080px) {
+
+@media screen and (min-width: 1080px) {
     .wrapper {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: none;
-    overflow: hidden;
-}
+        grid-template-columns: 1fr auto;
+        grid-template-rows: none;
+        overflow: hidden;
+    }
+
     .right {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        height: 100vh;
     }
+
     .lil_nav {
-    max-width: 500px;
-    justify-self: right;
-    
+        max-width: 500px;
+        justify-self: right;
+
     }
+
     .lil_nav_img {
         margin-bottom: 10px;
     }
+
     .gallery {
-    max-width: 500px;
-    justify-self: right;
+        max-width: 500px;
+        justify-self: right;
     }
+
     .gallery_img {
-    scroll-margin-top: 0; 
+        scroll-margin-top: 0;
     }
+
     .info-card {
-    width: 70%;
-    margin: 0 auto;
+        width: 70%;
+        margin: 0 auto;
     }
 }
-.gallery,.lil_nav{
+
+.gallery,
+.lil_nav {
     scrollbar-width: none;
 }
+
 .info {
     padding: 20px;
-    background-color: #f5eefb;
+    background-color: #FAF9F6;
     justify-content: center;
     align-items: center;
-    
+
 }
+
 .info-card {
-    background-color: white;
     padding: 15px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-   
+    background-color: white;
+    border: 1px solid #F0EAD6;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* Mjukare skugga */
+    border-radius: 12px;
+
+}
+.info-card h3 {
+    margin-top: 0;
+    color: #A67C52;
 }
