@@ -2,14 +2,14 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-
+/* Allmänna inställningar för sidan och scroll behavior för hela sidan */
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #FAF9F6;
     color: #2C2C2C;
 }
-
+/* Inställningar för body med färg och bakgrundsfärg och textsnitt */
 .header {
     display: flex;
     align-items: center;
@@ -18,7 +18,7 @@ body {
     border-bottom: 1px solid #E5D3B3;
     padding: 15px 30px;
 }
-
+/* Header-stil med flex och centrering vertikalt padding med.*/
 .header a {
     color: #5D5B56;
     font-weight: 500;
@@ -29,12 +29,7 @@ body {
     line-height: 25px;
     border-radius: 4px;
 }
-
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
+/* header länkar stil */
 .header a.logo {
     padding: 0%;
     margin: 0%;
@@ -47,49 +42,49 @@ body {
 }
 
 .header a.active {
-    background-color: #E5D3B3; 
+    background-color: #E5D3B3;
     color: #2C2C2C;
 }
 
-@media screen and (max-width: 600px) {
-    .header {
-        flex-direction: column;
-        align-items: stretch;
-    }
 
-    .header a {
-        display: block;
-        text-align: left;
-    }
 
-    .header a.logo {
-        width: 300px;
-        margin: 0 auto;
-    }
-
-    .header-right {
-        display: block;
-    }
+.wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    gap: 20px;
+    background-color: #FAF9F6;
 }
-
-
 .wrapper img {
     display: block;
     max-width: 100%;
 }
-
-.wrapper {
-    margin: 0 auto;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    height: 100vh;
-    background-color: #FAF9F6;
-    grid-gap: 20px;
+/* Wrapper för gridden tillsammans med bildspel */
+.info {
+    padding: 20px;
 }
 
+.info-card {
+    padding: 15px;
+    margin: 10px auto;
+    background-color: white;
+    border: 1px solid #F0EAD6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: #A67C52;
+}
+/* Info-kort stil */
+.right {
+    display: flex;
+    flex-direction: column;
+}
 .gallery {
     scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,19 +93,22 @@ body {
     margin-top: 20px;
     background-color: #FAF9F6;
 }
-
+/* snaptype är när man scrollar sä blir det som en lock on för bilden
+collumner och alla bilder är 9:16. */
 .gallery_img {
-    scroll-snap-align: start;
     margin-bottom: 10px;
     max-height: 100vh;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
+    scroll-snap-align: start;
     scroll-margin-top: 225px;
 
 }
-
-.gallery_item{
+/* bilder och scroll-snap-align: start att den väljer början av bilden och 
+pa grund av att det finns en sticky navbar på mobil versionen sa behöver man 
+skicka den lite mer äver flex shrink är att ingeting gar fel*/
+.gallery_item {
     width: 100%;
     display: flex;
     align-items: center;
@@ -118,14 +116,14 @@ body {
     gap: 12px;
 }
 
-.side_nav{
+.side_nav {
     display: none;
     flex-direction: column;
     gap: 12px;
-    z-index: 21;
 }
+/* navigerings knapp grupp som är avstängda när mobil versionen är aktiv */
 
-.nav_btn{
+.nav_btn {
     display: none;
     width: 44px;
     height: 44px;
@@ -136,13 +134,15 @@ body {
     color: #ffffff;
     font-size: 18px;
     transition: transform 0.18s ease, background-color 0.18s ease;
-    z-index: 21;
 }
-.nav_btn.up, .nav_btn.down {
+/* navigerings knapparna med stil*/
+
+.nav_btn.up,
+.nav_btn.down {
     display: none;
 }
-
-.nav_btn:hover{
+/* avstängd  */
+.nav_btn:hover {
     transform: scale(1.05);
 }
 
@@ -158,7 +158,7 @@ body {
     background-color: #FAF9F6;
     border-bottom: 3px solid #E5D3B3;
 }
-
+/* lilla navigations bildernas container för bildspellet */
 .lil_nav a {
     height: 200px;
     display: flex;
@@ -166,26 +166,31 @@ body {
     align-items: center;
     display: flex;
 }
-
+/* bilderna */
 .lil_nav_img {
     width: 100%;
     height: 100%;
     object-position: center;
     object-fit: cover;
-    filter: saturate(0) ;
+    filter: saturate(0);
     transition: 0.3s ease all;
 }
-
+/* hur bilderna är i cellen lilnavimg */
 .lil_nav_img:hover {
     transform: scale(1.05);
     filter: saturate(1);
 }
-
+.gallery,
+.lil_nav {
+    scrollbar-width: none;
+}
+/* hover effekt och andra saker  */
 @media screen and (min-width: 1080px) {
     .wrapper {
         grid-template-columns: 1fr auto;
         grid-template-rows: none;
         overflow: hidden;
+        margin-right: 20px;
     }
 
     .right {
@@ -215,7 +220,7 @@ body {
         scroll-margin-top: 0;
     }
 
-    .side_nav{
+    .side_nav {
         display: flex;
         position: absolute;
         left: -64px;
@@ -225,7 +230,7 @@ body {
         gap: 12px;
     }
 
-    .gallery_item{
+    .gallery_item {
         position: relative;
         display: flex;
         justify-content: center;
@@ -233,52 +238,50 @@ body {
         gap: 12px;
     }
 
-    .gallery_img{
+    .gallery_img {
         width: 100%;
         max-width: 100%;
         height: auto;
     }
-    .side_nav{
+
+    .side_nav {
         display: inline-flex;
         z-index: 20;
     }
+
     .nav_btn {
         display: inline-flex;
         z-index: 20;
     }
-    .nav_btn.up, .nav_btn.down {
+
+    .nav_btn.up,
+    .nav_btn.down {
         display: inline-flex;
     }
 
     .info-card {
         width: 70%;
-        margin: 0 auto;
     }
 }
+/* bilderna ändras när skärmen är mindre än större än 1080pixlar */
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-.gallery,
-.lil_nav {
-    scrollbar-width: none;
+    .header a {
+        display: block;
+        text-align: left;
+    }
+
+    .header a.logo {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .header-right {
+        display: block;
+    }
 }
-
-.info {
-    padding: 20px;
-    background-color: #FAF9F6;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.info-card {
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: white;
-    border: 1px solid #F0EAD6;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    border-radius: 12px;
-
-}
-.info-card h3 {
-    margin-top: 0;
-    color: #A67C52;
-}
+/* headern ändras när skärmen är mindre än 600pixlar. */
