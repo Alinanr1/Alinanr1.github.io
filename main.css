@@ -10,7 +10,7 @@ body {
     color: #2C2C2C;
 }
 /* Inställningar för body med färg och bakgrundsfärg och textsnitt */
-.header {
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,7 +19,7 @@ body {
     padding: 15px 30px;
 }
 /* Header-stil med flex och centrering vertikalt padding med.*/
-.header a {
+header a {
     color: #5D5B56;
     font-weight: 500;
     text-align: center;
@@ -30,18 +30,18 @@ body {
     border-radius: 4px;
 }
 /* header länkar stil */
-.header a.logo {
+header a.logo {
     padding: 0%;
     margin: 0%;
     width: 100px;
 }
 
-.header a:hover {
+header a:hover {
     background-color: #F4EDE0;
     color: #A67C52;
 }
 
-.header a.active {
+header a.active {
     background-color: #E5D3B3;
     color: #2C2C2C;
 }
@@ -51,7 +51,7 @@ body {
 .wrapper {
     display: grid;
     grid-template-rows: auto 1fr;
-    height: 100vh;
+    min-height: 100vh;
     gap: 20px;
     background-color: #FAF9F6;
 }
@@ -265,23 +265,52 @@ skicka den lite mer äver flex shrink är att ingeting gar fel*/
 }
 /* bilderna ändras när skärmen är mindre än större än 1080pixlar */
 @media screen and (max-width: 600px) {
-    .header {
+    header {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .header a {
+    header a {
         display: block;
         text-align: left;
     }
 
-    .header a.logo {
+    header a.logo {
         width: 300px;
         margin: 0 auto;
     }
 
-    .header-right {
+    header-right {
         display: block;
     }
 }
 /* headern ändras när skärmen är mindre än 600pixlar. */
+
+/* Footer-stil: matchar header */
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-top: 1px solid #E5D3B3;
+    padding: 15px 30px;
+    color: #5D5B56;
+    gap: 20px;
+}
+.site-footer a {
+    color: #5D5B56;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px;
+}
+.site-footer a:hover {
+    background-color: #F4EDE0;
+    color: #A67C52;
+}
+@media screen and (max-width: 600px) {
+    .site-footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
